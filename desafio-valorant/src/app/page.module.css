@@ -1,3 +1,4 @@
+/*div principal que segura todo mundo e serve como body*/
 .background{
   background-image: url(./images/valorantBackground.jpg);
   background-position: center;
@@ -9,29 +10,49 @@
   min-height: 100vh;
 }
 
+/*título AGENTES acima dos agentes*/
 .background h1{
   color: white;
   letter-spacing: 0.5rem;
   border-bottom: 2px solid white;
 }
 
+/*corpo da navbar*/
 .background > .navContainer{
   background-color: #1f2427;
   position: sticky;
   display: flex;
   width: 100vw;
-  height: 15%;
+  height: 5vh;
   top: 0px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
+/*logo da riot*/
+.background .navContainer .riotLogo{
+  width: 100px;
+  height: 100px;
+  background-image: url(./images/RiotIconePequeno.png);
+  filter:invert(1);
+}
+
+/*logo do valorant*/
+.background .navContainer .valorantLogo{
+  width: 100px;
+  height: 100%;
+  background-image: url(./images/ValorantLogoPequeno.png);
+}
+
+/*input text de pesquisa*/
  .background > .navContainer > input{
   border: none;
   outline: none;
-  padding: 10px 35px;
+  width: 30%;
+  height: 100%;
  }
 
+ /*corpo que segura o container que segura os cards de cada agente*/
  .background .agentsList{
   display: flex;
   flex-direction: column;
@@ -40,6 +61,7 @@
   justify-content: center;
  }
 
+ /*container que segura os cards de cada agente*/
  .background .agentsList .agentsContainer{
   display: flex;
   flex-wrap: wrap;
@@ -50,6 +72,7 @@
   justify-items: center;
  }
 
+  /*corpo do card de cada agente*/
  .background .agentsList .agentsContainer .agentCard{
   display: flex;
   flex-direction: column;
@@ -64,6 +87,7 @@
   background-color: rgba(0, 0, 0, 0.5);
  }
 
+  /*nome de cada agente*/
  .background .agentsList .agentsContainer .agentCard h2{
   background-color: #e04652;
   color: white;
@@ -73,13 +97,14 @@
   transition: 0.5s;
  }
 
+
  .background .agentsList .agentsContainer .agentCard:hover > h2{
   letter-spacing: 0.5rem;
 }
 
 
 
-
+ /*hover que faz cada elemento dentro do card aumentar de tamanho, ganhar cor e ter uma sombra*/
 .background .agentsList .agentsContainer .agentCard:hover{
   transform: scale(1.05);
   filter: grayscale(0);
@@ -87,6 +112,7 @@
   cursor: pointer;
 }
 
+ /*a foto do agente (preto e branca)*/
 .background .agentsList .agentsContainer .agentCard .agentIcon{
   position: relative;
   width: 100%;
@@ -96,10 +122,12 @@
 
 }
 
+ /*quando passar o mouse no card, a foto ganha as cores normais*/
 .background .agentsList .agentsContainer .agentCard:hover > .agentIcon{
   filter: grayscale(0);
 }
 
+ /*container que segura o nome e ícone da classe do agente*/
 .background .agentsList .agentsContainer .agentCard .agentRole{
   display: flex;
   gap: 5%;
@@ -113,16 +141,18 @@
   transition: 0.5s;
 }
 
+ /*hover que faz o nome da classe ficar com espaçamento maior*/
 .background .agentsList .agentsContainer .agentCard:hover > .agentRole{
   letter-spacing: 0.5rem;
 }
-
+ /*ícone da classe*/
 .background .agentsList .agentsContainer .agentCard .agentRole img{
   width: 15px;
   height: 15px;
 }
 
 
+ /*background preto que fica atrás do popup e impede o usuário de clicar em outro agente enquanto o atual está aberto*/
 .background .popup {
   position: fixed;
   top: 0;
@@ -136,6 +166,7 @@
 
 }
 
+ /*container que segura os itens do popup*/
 .background .popupContent {
   display: flex;
   flex-direction: column;
@@ -153,6 +184,7 @@
   box-shadow: 4px 8px 22px rgba(255, 0, 0, 0.7);
 }
 
+ /* header do popup que segura nome, classe e botção de fechar */
 .background .popupContent .popupHeader{
   display: flex;
   align-items: center;
@@ -161,6 +193,20 @@
   height: 5%;
 }
 
+ /*container que segura o nome e classe do agente*/
+.background .popupContent .popupHeader .agentTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ /*ícone da classe do popup*/
+.background .popupContent .popupHeader .agentTitle img{
+   width: 30px;
+   height: 30px;
+}
+
+ /*nome e classe do popup*/
 .background .popupContent .popupHeader h2{
   text-transform: uppercase;
   letter-spacing: 0.5rem;
@@ -169,6 +215,7 @@
   z-index: 10;
 }
 
+ /*botão de fechar*/
 .background .popupContent .popupHeader button {
   background: #e04652;
   border: none;
@@ -177,13 +224,14 @@
   cursor: pointer;
 }
 
+ /*itens principais do popup*/
 .background .popupContent .popupMain{
   width: 100%;
-
   height: 95%;
   display: flex;
 }
 
+ /*div que segura o full portrait e background do agente*/
 .background .popupContent .popupMain .popupPortrait{
   height: 100%;
   width: 30%;
@@ -191,7 +239,7 @@
 
 }
 
-
+ /*a render/portrait do agente*/
 .background .popupContent .popupMain .popupPortrait .agentFullPortrait{
   position: absolute;
   height: 110%;
@@ -201,6 +249,7 @@
   z-index: 3;
 }
 
+ /*o background q fica atrás da render completa*/
 .background .popupContent .popupMain .popupPortrait .agentFullBackground{
 position: absolute;
 height: 100%;
@@ -208,6 +257,7 @@ margin-left: -15%;
 z-index: 2;
 }
 
+ /*container que a descrição e habilidades do agente*/
 .background .popupContent .popupMain .agentDetails{
   display: flex;
   flex-direction: column;
@@ -219,6 +269,7 @@ z-index: 2;
   z-index: 5;
 }
 
+ /*container que segura a descrição e o título da descrição*/
 .background .popupContent .popupMain .agentDetails .descriptionContainer{
   width: 95%;
   height: 25%;
@@ -235,15 +286,17 @@ z-index: 2;
   position: relative;
   z-index: 4;
 }
-
+ /*título da descrição*/
 .background .popupContent .popupMain .agentDetails .descriptionContainer h3{
   letter-spacing: 0.2rem;
 }
 
+ /*a descrição em si*/
 .background .popupContent .popupMain .agentDetails .descriptionContainer p{
   font-weight: 600;
 }
 
+ /*container que os ícones, descrições, subtítulos das habilidades e o título abilidades */
 .background .popupContent .popupMain .agentDetails .abilitiesContainer{
   background-color: #e0465394;
   width: 95%;
@@ -254,10 +307,12 @@ z-index: 2;
   align-items: center;
   justify-content: space-evenly;
 }
+ /*título habilidades*/
 .background .popupContent .popupMain .agentDetails .abilitiesContainer h3{
   letter-spacing: 0.2rem;
 }
 
+ /*container dos ícones das habilidades*/
 .background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesIcons{
   display: flex;
   align-items: center;
@@ -267,26 +322,30 @@ z-index: 2;
   height: 30%;
 }
 
+ /*cada ícone de cada habilidade*/
 .background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesIcons img{
   width: 15%;
   height: 100%;
   transition: 0.5s;
 }
 
+ /*efeito de hover em cada ícone*/
 .background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesIcons img:hover{
   background-color:rgba(0, 0, 0, 0.5);
 }
 
+ /*container do nome/título de cada habilidade e sua descrição*/
 .background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesDescription{
   text-align: center;
   align-items: center;
   justify-content: space-around;
 }
 
+ /*nome/título da habilidade*/
 .background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesDescription > h4{
   border-bottom: solid 1px white;
 }
-
+ /*descrição da habilidade*/
 .background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesDescription > p{
   font-weight: 600;
 }

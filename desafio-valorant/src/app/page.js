@@ -9,7 +9,9 @@ export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedAbility, setSelectedAbility] = useState(null);
 
+
   useEffect(() => {
+    //função que pega todos os agentes
     async function fetchAgents() {
       const response = await fetch("https://valorant-api.com/v1/agents?language=pt-BR");
       const result = await response.json();
@@ -20,12 +22,14 @@ export default function Home() {
     fetchAgents();
   }, []);
 
+  //função que pegaum agente específico
   async function fetchAgentByUUID(uuid) {
     const response = await fetch(`https://valorant-api.com/v1/agents/${uuid}?language=pt-BR`);
     const result = await response.json();
     setSelectedAgent(result.data);
   }
 
+  //função que impede de imprimir 2 sovas
   function filterAgents(agents) {
     const uniqueAgents = {};
     agents.forEach(agent => {
@@ -41,25 +45,30 @@ export default function Home() {
     });
     return Object.values(uniqueAgents);
   }
-
+//função que mostra o popup do agente clicado
   function handleAgentClick(agent) {
     fetchAgentByUUID(agent.uuid);
     setShowPopup(true);
   }
 
+  //função que fecha o popup
   function handleClosePopup() {
     setShowPopup(false);
-    setSelectedAbility(null);
+    setSelectedAbility(null);//essa parte faz a descrição da habilidade desaparecer quando o popup é fechado
   }
 
+  //função que pega a habilidade clicada no popup
   function handleAbilityClick(ability) {
     setSelectedAbility(ability);
   }
 
   return (
+    /*tela principal */
     <main className={styles.background}>
       <nav className={styles.navContainer}>
+        <div className={styles.riotLogo}></div>
         <input type="text" placeholder="Insira o nome de um agente " onChange={(e) => setSearch(e.target.value)} />
+        <div className={styles.valorantLogo}></div>
       </nav>
 
       <div className={styles.agentsList}>
@@ -78,12 +87,14 @@ export default function Home() {
         </div>
       </div>
 
+      {/*popup */}
       {showPopup && selectedAgent && (
         <div className={styles.popup}>
           <div className={styles.popupContent}>
             <div className={styles.popupHeader}>
               <div className={styles.agentTitle}>
               <h2>{selectedAgent.displayName} ({selectedAgent.role.displayName})</h2>
+              <img src={selectedAgent.role.displayIcon}/>
               </div>
               <button onClick={handleClosePopup}>X</button>
             </div>
@@ -98,7 +109,7 @@ export default function Home() {
                   <p>{selectedAgent.description}</p>
                 </div>
                 <div className={styles.abilitiesContainer}>
-                  <h3>ABILIDADES</h3>
+                  <h3>HABILIDADES</h3>
                   <div className={styles.abilitiesIcons}>
                     {selectedAgent.abilities.map((ability, index) => ability.displayIcon && (
                       <img
