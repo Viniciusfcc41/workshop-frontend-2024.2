@@ -1,0 +1,292 @@
+.background{
+  background-image: url(./images/valorantBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.background h1{
+  color: white;
+  letter-spacing: 0.5rem;
+  border-bottom: 2px solid white;
+}
+
+.background > .navContainer{
+  background-color: #1f2427;
+  position: sticky;
+  display: flex;
+  width: 100vw;
+  height: 15%;
+  top: 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+ .background > .navContainer > input{
+  border: none;
+  outline: none;
+  padding: 10px 35px;
+ }
+
+ .background .agentsList{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+ }
+
+ .background .agentsList .agentsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+ }
+
+ .background .agentsList .agentsContainer .agentCard{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 20%;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  margin: 1%;
+  transition: 0.5s;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+ }
+
+ .background .agentsList .agentsContainer .agentCard h2{
+  background-color: #e04652;
+  color: white;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  transition: 0.5s;
+ }
+
+ .background .agentsList .agentsContainer .agentCard:hover > h2{
+  letter-spacing: 0.5rem;
+}
+
+
+
+
+.background .agentsList .agentsContainer .agentCard:hover{
+  transform: scale(1.05);
+  filter: grayscale(0);
+  box-shadow: 4px 8px 22px rgba(255, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.background .agentsList .agentsContainer .agentCard .agentIcon{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  filter: grayscale(1);
+
+}
+
+.background .agentsList .agentsContainer .agentCard:hover > .agentIcon{
+  filter: grayscale(0);
+}
+
+.background .agentsList .agentsContainer .agentCard .agentRole{
+  display: flex;
+  gap: 5%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color:  #212121;;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 800;
+  transition: 0.5s;
+}
+
+.background .agentsList .agentsContainer .agentCard:hover > .agentRole{
+  letter-spacing: 0.5rem;
+}
+
+.background .agentsList .agentsContainer .agentCard .agentRole img{
+  width: 15px;
+  height: 15px;
+}
+
+
+.background .popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.background .popupContent {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 80%;
+  background-image: url(./images/backgroundCardPreto.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding:20px;
+  border-radius: 8px;
+  position: relative;
+  align-items: center;
+  color: white;
+  box-shadow: 4px 8px 22px rgba(255, 0, 0, 0.7);
+}
+
+.background .popupContent .popupHeader{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 100%;
+  height: 5%;
+}
+
+.background .popupContent .popupHeader h2{
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  border-bottom: 2px solid white;
+  position: relative;
+  z-index: 10;
+}
+
+.background .popupContent .popupHeader button {
+  background: #e04652;
+  border: none;
+  border-radius: 50%;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.background .popupContent .popupMain{
+  width: 100%;
+
+  height: 95%;
+  display: flex;
+}
+
+.background .popupContent .popupMain .popupPortrait{
+  height: 100%;
+  width: 30%;
+  position: relative;
+
+}
+
+
+.background .popupContent .popupMain .popupPortrait .agentFullPortrait{
+  position: absolute;
+  height: 110%;
+  transform: rotateY(180deg);
+  margin-left: -65%;
+  margin-top: -20%;
+  z-index: 3;
+}
+
+.background .popupContent .popupMain .popupPortrait .agentFullBackground{
+position: absolute;
+height: 100%;
+margin-left: -15%;
+z-index: 2;
+}
+
+.background .popupContent .popupMain .agentDetails{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 70%;
+  position: relative;
+  z-index: 5;
+}
+
+.background .popupContent .popupMain .agentDetails .descriptionContainer{
+  width: 95%;
+  height: 25%;
+  margin-left: 5%;
+  margin-top: 1%;
+  background-color: #e0465394;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding-left: 2%;
+  gap: 1%;
+  position: relative;
+  z-index: 4;
+}
+
+.background .popupContent .popupMain .agentDetails .descriptionContainer h3{
+  letter-spacing: 0.2rem;
+}
+
+.background .popupContent .popupMain .agentDetails .descriptionContainer p{
+  font-weight: 600;
+}
+
+.background .popupContent .popupMain .agentDetails .abilitiesContainer{
+  background-color: #e0465394;
+  width: 95%;
+  height: 50%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.background .popupContent .popupMain .agentDetails .abilitiesContainer h3{
+  letter-spacing: 0.2rem;
+}
+
+.background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesIcons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-items: center;
+  width: 100%;
+  height: 30%;
+}
+
+.background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesIcons img{
+  width: 15%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesIcons img:hover{
+  background-color:rgba(0, 0, 0, 0.5);
+}
+
+.background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesDescription{
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesDescription > h4{
+  border-bottom: solid 1px white;
+}
+
+.background .popupContent .popupMain .agentDetails .abilitiesContainer .abilitiesDescription > p{
+  font-weight: 600;
+}
